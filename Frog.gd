@@ -35,4 +35,7 @@ func _input(event):
 	#	self.position.y = 0
 	
 	# Collision Check
-	
+
+func _on_Area2D_area_entered(area):
+	print(area.get_parent().name)
+	pass # Replace with function body.
