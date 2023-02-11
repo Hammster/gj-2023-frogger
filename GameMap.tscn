@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://grass.png" type="Texture" id=1]
 [ext_resource path="res://frog.png" type="Texture" id=2]
@@ -6,6 +6,14 @@
 [ext_resource path="res://street_b.png" type="Texture" id=4]
 [ext_resource path="res://grass_b.png" type="Texture" id=5]
 [ext_resource path="res://Grass.gd" type="Script" id=6]
+[ext_resource path="res://water_t.png" type="Texture" id=7]
+[ext_resource path="res://water_m.png" type="Texture" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 127.5, 52.25 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7.25, 7.375 )
 
 [node name="GameMap" type="Node2D"]
 scale = Vector2( 4, 4 )
@@ -19,8 +27,14 @@ script = ExtResource( 6 )
 
 [node name="Obstacles" type="Node2D" parent="Grass"]
 
+[node name="Area2D" type="Area2D" parent="Grass/Obstacles"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/Obstacles/Area2D"]
+position = Vector2( 127.75, 53.5 )
+shape = SubResource( 1 )
+
 [node name="StreetB2" type="Sprite" parent="Grass/Obstacles"]
-position = Vector2( 5.75, 348.25 )
+position = Vector2( 0, 356 )
 texture = ExtResource( 4 )
 centered = false
 flip_v = true
@@ -28,16 +42,31 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 256, 32 )
 
 [node name="StreetB" type="Sprite" parent="Grass/Obstacles"]
-position = Vector2( 5.75, 378.25 )
+position = Vector2( 0, 388 )
 texture = ExtResource( 4 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 256, 32 )
 
-[node name="Water" type="Sprite" parent="Grass/Obstacles"]
-position = Vector2( 6.25, 158.25 )
+[node name="Water2" type="Sprite" parent="Grass/Obstacles"]
+position = Vector2( 0, 256 )
 texture = ExtResource( 5 )
 centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 256, 32 )
+
+[node name="Water3" type="Sprite" parent="Grass/Obstacles"]
+position = Vector2( 0, 192 )
+texture = ExtResource( 7 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 256, 32 )
+
+[node name="Water" type="Sprite" parent="Grass/Obstacles"]
+position = Vector2( 102.75, 240 )
+texture = ExtResource( 8 )
+centered = false
+offset = Vector2( -102.75, -16 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 256, 32 )
 
@@ -48,3 +77,11 @@ position = Vector2( 55, 208 )
 texture = ExtResource( 2 )
 centered = false
 script = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="Frog"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Frog/Area2D"]
+position = Vector2( 8, 8.125 )
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="Grass/Obstacles/Area2D" to="Grass" method="_on_Area2D_area_entered"]
