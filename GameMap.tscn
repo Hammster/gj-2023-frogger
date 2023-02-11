@@ -189,16 +189,20 @@ script = ExtResource( 3 )
 position = Vector2( 8, 8.125 )
 shape = SubResource( 2 )
 
-[node name="walk" type="AudioStreamPlayer" parent="Frog"]
+[node name="ClearTimer" type="Timer" parent="Frog"]
+wait_time = 0.8
+one_shot = true
+
+[node name="walk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 
-[node name="smash" type="AudioStreamPlayer" parent="Frog"]
+[node name="smash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
 
-[node name="bite" type="AudioStreamPlayer" parent="Frog"]
+[node name="bite" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
 
-[node name="Splash" type="AudioStreamPlayer" parent="Frog"]
+[node name="Splash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
 volume_db = -0.437
 
@@ -210,3 +214,4 @@ autoplay = true
 [connection signal="area_entered" from="Grass/Obstacles/Area2D" to="Grass" method="_on_Area2D_area_entered"]
 [connection signal="area_entered" from="Frog/Area2D" to="Frog" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Frog/Area2D" to="Frog" method="_on_Area2D_area_exited"]
+[connection signal="timeout" from="Frog/ClearTimer" to="Frog" method="_on_ClearTimer_timeout"]
