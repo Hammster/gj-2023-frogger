@@ -14,6 +14,10 @@ config/name="Frogger"
 run/main_scene="res://GameMap.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/height=576
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
