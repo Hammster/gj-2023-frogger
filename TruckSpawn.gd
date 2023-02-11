@@ -1,18 +1,16 @@
 extends Node2D
 
 var Truck = preload("res://truck.tscn")
-var rng = RandomNumberGenerator.new()
+export var initial_speed_x = 20
 
-# Called when the node enters the scene tree for the first time.
+func randomize_timer():
+	$Timer.wait_time = rand_range(2, 5)
+
 func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	randomize_timer()
 
 func _on_Timer_timeout():
-	add_child( Truck.instance())
-	$Timer.wait_time = rng.randf_range(3, 7)
+	var new_truck = Truck.instance()
+	new_truck.speed_x = initial_speed_x
+	add_child(new_truck)
+	randomize_timer()

@@ -11,12 +11,9 @@ func _ready():
 	self.position.y = bounding_y - spiteSize
 	grass = get_parent().get_node("Grass")
 	grass.position.y = 160 - grass.region_rect.size.y
-	print(grass.region_rect.size.y)
 	pass # Replace with function body.
 
-func _input(event):
-	print(grass.region_rect.size)
-	
+func _input(event):	
 	# Input Handling
 	if event.is_action_pressed("ui_right") and self.position.x < bounding_x:
 		$walk.play()

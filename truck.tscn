@@ -6,15 +6,13 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.625, 6 )
 
-[node name="Truck" type="Node2D"]
-
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Truck" type="Sprite"]
 position = Vector2( 16, 9 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="Sprite"]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -0.375, 0.25 )
 shape = SubResource( 1 )
