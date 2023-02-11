@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://grass.png" type="Texture" id=1]
 [ext_resource path="res://frog.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Grass.gd" type="Script" id=6]
 [ext_resource path="res://TruckSpawn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://foot.mp3" type="AudioStream" id=8]
+[ext_resource path="res://trunk.png" type="Texture" id=9]
 
 [node name="GameMap" type="Node2D"]
 scale = Vector2( 4, 4 )
@@ -50,6 +51,10 @@ position = Vector2( -36, 1903.5 )
 [node name="TruckSpawnL" parent="Grass/Obstacles" instance=ExtResource( 7 )]
 position = Vector2( 259.25, 1881.25 )
 initial_speed_x = -20
+
+[node name="Trunk" type="Sprite" parent="Grass/Obstacles"]
+position = Vector2( 29.75, 1744.75 )
+texture = ExtResource( 9 )
 
 [node name="Decorations" type="Node2D" parent="Grass"]
 
