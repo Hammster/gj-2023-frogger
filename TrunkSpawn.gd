@@ -1,6 +1,6 @@
 extends Node2D
 
-var Truck = preload("res://trunk.tscn")
+var Truck = preload("res://Trunk.tscn")
 export var initial_speed_x = 20
 
 func randomize_timer():
