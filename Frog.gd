@@ -4,6 +4,8 @@ var spiteSize = 16
 var bounding_x = spiteSize * 15
 var bounding_y = spiteSize * 8
 var grass = null
+var is_swimming = false
+var trunk_stash = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +13,9 @@ func _ready():
 	self.position.y = bounding_y - spiteSize
 	grass = get_parent().get_node("Grass")
 	grass.position.y = 160 - grass.region_rect.size.y
+
+func _process(delta):
+	deathcheck()
 
 func _input(event):	
 	# Input Handling
@@ -31,6 +36,35 @@ func _input(event):
 		grass.position.y -= 16
 		self.flip_v = true
 
+func deathcheck():
+	if is_swimming and trunk_stash == 0:
+		print("death W")
+		get_tree().change_scene("res://lost.tscn")
+
 func _on_Area2D_area_entered(area):
-	print(area.get_parent().name)
+
+
+	if "Trunk" in area.get_parent().name:
+		trunk_stash += 1
+		
+		print("Swim")
+	
+	if "Truck" in area.get_parent().name:
+		$walk.play()
+		print("death T")
+		get_tree().change_scene("res://lost.tscn")
+	if "Hound" in area.get_parent().name:
+		$walk.play()
+		print("death H")
+		get_tree().change_scene("res://lost.tscn")
+	if "Water" in area.get_parent().name:
+		is_swimming = true
+	pass
+
+func _on_Area2D_area_exited(area):
+	if "Water" in area.get_parent().name:
+		is_swimming = false
+
+	if "Trunk" in area.get_parent().name:
+		trunk_stash -= 1
 	pass

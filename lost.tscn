@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://won.gd" type="Script" id=2]
+[ext_resource path="res://Finish3.mp3" type="AudioStream" id=3]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 495.0
+margin_top = 291.0
+margin_right = 858.0
+margin_bottom = 349.0
+text = "Oh noes"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 412.0
+margin_top = 544.0
+margin_right = 621.0
+margin_bottom = 572.0
+text = "PLAY AGAIN"
+
+[node name="Ende" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

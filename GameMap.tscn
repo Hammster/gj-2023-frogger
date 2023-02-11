@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://grass.png" type="Texture" id=1]
 [ext_resource path="res://frog.png" type="Texture" id=2]
@@ -17,9 +17,13 @@
 [ext_resource path="res://street_t.png" type="Texture" id=15]
 [ext_resource path="res://finish.png" type="Texture" id=16]
 [ext_resource path="res://TruckSpawn.tscn" type="PackedScene" id=17]
+[ext_resource path="res://TrunkSpawn.tscn" type="PackedScene" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 127.5, 52.25 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 128.25, 32.75 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7.25, 7.375 )
@@ -31,7 +35,7 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 256, 512 )
+region_rect = Rect2( 0, 0, 256, 900 )
 script = ExtResource( 6 )
 
 [node name="Obstacles" type="Node2D" parent="Grass"]
@@ -45,8 +49,32 @@ region_rect = Rect2( 0, 0, 256, 128 )
 [node name="Hound" parent="Grass/Obstacles" instance=ExtResource( 14 )]
 position = Vector2( 0, 128 )
 
+[node name="Hound4" parent="Grass/Obstacles" instance=ExtResource( 14 )]
+position = Vector2( -21.25, 434.75 )
+
+[node name="Hound3" parent="Grass/Obstacles" instance=ExtResource( 14 )]
+position = Vector2( -71, 316 )
+
 [node name="Hound2" parent="Grass/Obstacles" instance=ExtResource( 14 )]
 position = Vector2( 0, 300 )
+
+[node name="Hound5" parent="Grass/Obstacles" instance=ExtResource( 14 )]
+position = Vector2( -60.5, 490.75 )
+
+[node name="Hound6" parent="Grass/Obstacles" instance=ExtResource( 14 )]
+position = Vector2( 16.75, 537.75 )
+
+[node name="Hound7" parent="Grass/Obstacles" instance=ExtResource( 14 )]
+position = Vector2( -64, 587 )
+
+[node name="Hound8" parent="Grass/Obstacles" instance=ExtResource( 14 )]
+position = Vector2( -103.25, 643 )
+
+[node name="Hound9" parent="Grass/Obstacles" instance=ExtResource( 14 )]
+position = Vector2( -26, 690 )
+
+[node name="Hound10" parent="Grass/Obstacles" instance=ExtResource( 14 )]
+position = Vector2( 31.25, 775.5 )
 
 [node name="Area2D" type="Area2D" parent="Grass/Obstacles"]
 
@@ -112,6 +140,31 @@ stream = ExtResource( 7 )
 autoplay = true
 max_distance = 500.0
 
+[node name="TrunkSpawnL" parent="Grass/Obstacles" instance=ExtResource( 19 )]
+position = Vector2( 284.25, 207.5 )
+initial_speed_x = -17
+
+[node name="TrunkSpawnL2" parent="Grass/Obstacles" instance=ExtResource( 19 )]
+position = Vector2( 284.25, 224.75 )
+initial_speed_x = -20
+
+[node name="TrunkSpawnL3" parent="Grass/Obstacles" instance=ExtResource( 19 )]
+position = Vector2( 284.25, 242.75 )
+initial_speed_x = -25
+
+[node name="TrunkSpawnL4" parent="Grass/Obstacles" instance=ExtResource( 19 )]
+position = Vector2( 284.25, 260.25 )
+initial_speed_x = -31
+
+[node name="Water4" type="Node2D" parent="Grass/Obstacles"]
+
+[node name="Area2D2" type="Area2D" parent="Grass/Obstacles/Water4"]
+position = Vector2( 0, 256 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/Obstacles/Water4/Area2D2"]
+position = Vector2( 128, -15.75 )
+shape = SubResource( 3 )
+
 [node name="TruckSpawnR" parent="Grass/Obstacles" instance=ExtResource( 17 )]
 position = Vector2( -19.25, 387.5 )
 
@@ -142,3 +195,5 @@ volume_db = -13.546
 autoplay = true
 
 [connection signal="area_entered" from="Grass/Obstacles/Area2D" to="Grass" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="Frog/Area2D" to="Frog" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Frog/Area2D" to="Frog" method="_on_Area2D_area_exited"]
