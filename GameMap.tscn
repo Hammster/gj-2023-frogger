@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://grass.png" type="Texture" id=1]
 [ext_resource path="res://frog.png" type="Texture" id=2]
@@ -13,6 +13,10 @@
 [ext_resource path="res://water_t.png" type="Texture" id=11]
 [ext_resource path="res://bus_beat_Niklas.mp3" type="AudioStream" id=12]
 [ext_resource path="res://foot.mp3" type="AudioStream" id=13]
+[ext_resource path="res://hound.tscn" type="PackedScene" id=14]
+[ext_resource path="res://street_t.png" type="Texture" id=15]
+[ext_resource path="res://finish.png" type="Texture" id=16]
+[ext_resource path="res://TruckSpawn.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 127.5, 52.25 )
@@ -32,6 +36,18 @@ script = ExtResource( 6 )
 
 [node name="Obstacles" type="Node2D" parent="Grass"]
 
+[node name="Finish" type="Sprite" parent="Grass/Obstacles"]
+position = Vector2( 128, 41.75 )
+texture = ExtResource( 16 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 256, 128 )
+
+[node name="Hound" parent="Grass/Obstacles" instance=ExtResource( 14 )]
+position = Vector2( 0, 128 )
+
+[node name="Hound2" parent="Grass/Obstacles" instance=ExtResource( 14 )]
+position = Vector2( 0, 300 )
+
 [node name="Area2D" type="Area2D" parent="Grass/Obstacles"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/Obstacles/Area2D"]
@@ -40,9 +56,8 @@ shape = SubResource( 1 )
 
 [node name="StreetB2" type="Sprite" parent="Grass/Obstacles"]
 position = Vector2( 0, 356 )
-texture = ExtResource( 4 )
+texture = ExtResource( 15 )
 centered = false
-flip_v = true
 region_enabled = true
 region_rect = Rect2( 0, 0, 256, 32 )
 
@@ -96,6 +111,13 @@ scale = Vector2( 4, 4 )
 stream = ExtResource( 7 )
 autoplay = true
 max_distance = 500.0
+
+[node name="TruckSpawnR" parent="Grass/Obstacles" instance=ExtResource( 17 )]
+position = Vector2( -19.25, 387.5 )
+
+[node name="TruckSpawnL" parent="Grass/Obstacles" instance=ExtResource( 17 )]
+position = Vector2( 274, 361.25 )
+initial_speed_x = -20
 
 [node name="Decorations" type="Node2D" parent="Grass"]
 

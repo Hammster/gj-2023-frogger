@@ -30,14 +30,7 @@ func _input(event):
 		#position.y += 16
 		grass.position.y -= 16
 		self.flip_v = true
-	
-
-	#if self.position.y == bounding_y - 16:
-	#	grass.position.y -= bounding_y - spiteSize
-	#	self.position.y = 0
-	
-	# Collision Check
 
 func _on_Area2D_area_entered(area):
 	print(area.get_parent().name)
-	pass # Replace with function body.
+	pass
