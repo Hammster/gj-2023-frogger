@@ -13,7 +13,7 @@
 [ext_resource path="res://water_t.png" type="Texture" id=11]
 [ext_resource path="res://bus_beat_Niklas.mp3" type="AudioStream" id=12]
 [ext_resource path="res://foot.mp3" type="AudioStream" id=13]
-[ext_resource path="res://Finish.mp3" type="AudioStream" id=14]
+[ext_resource path="res://Finish3.mp3" type="AudioStream" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 127.5, 52.25 )
