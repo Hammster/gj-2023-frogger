@@ -19,14 +19,18 @@ func _input(event):
 	
 	# Input Handling
 	if event.is_action_pressed("ui_right") and self.position.x < bounding_x:
+		$walk.play()
 		position.x += 16
 	if event.is_action_pressed("ui_left") and self.position.x > 0:
+		$walk.play()
 		position.x -= 16
 	if event.is_action_pressed("ui_up"):
+		$walk.play()
 		#position.y -= 16
 		grass.position.y += 16
 		self.flip_v = false
 	if event.is_action_pressed("ui_down") and grass.position.y > -352:
+		$walk.play()
 		#position.y += 16
 		grass.position.y -= 16
 		self.flip_v = true
