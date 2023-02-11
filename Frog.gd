@@ -15,7 +15,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _input(event):
-	print(grass.position)
+	print(grass.region_rect.size)
 	
 	# Input Handling
 	if event.is_action_pressed("ui_right") and self.position.x < bounding_x:
@@ -29,7 +29,7 @@ func _input(event):
 		#position.y -= 16
 		grass.position.y += 16
 		self.flip_v = false
-	if event.is_action_pressed("ui_down") and grass.position.y > -352:
+	if event.is_action_pressed("ui_down") and grass.position.y > -grass.region_rect.size.y + 160:
 		$walk.play()
 		#position.y += 16
 		grass.position.y -= 16

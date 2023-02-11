@@ -23,7 +23,7 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 256, 512 )
+region_rect = Rect2( 0, 0, 256, 1024 )
 script = ExtResource( 9 )
 
 [node name="Obstacles" type="Node2D" parent="Grass"]
@@ -46,6 +46,21 @@ region_rect = Rect2( 0, 0, 272, 32 )
 
 [node name="StreetB" type="Sprite" parent="Grass/Obstacles"]
 position = Vector2( 0, 388 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 256, 32 )
+
+[node name="StreetB3" type="Sprite" parent="Grass/Obstacles"]
+position = Vector2( 0, 712 )
+texture = ExtResource( 5 )
+centered = false
+offset = Vector2( -9, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 272, 32 )
+
+[node name="StreetB4" type="Sprite" parent="Grass/Obstacles"]
+position = Vector2( 0, 744 )
 texture = ExtResource( 6 )
 centered = false
 region_enabled = true
