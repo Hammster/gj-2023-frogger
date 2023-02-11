@@ -2,7 +2,7 @@
 
 [ext_resource path="res://wednesday.png" type="Texture" id=1]
 [ext_resource path="res://won.gd" type="Script" id=2]
-[ext_resource path="res://Finish.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Finish3.mp3" type="AudioStream" id=3]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
