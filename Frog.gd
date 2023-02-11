@@ -15,16 +15,18 @@ func _ready():
 	pass # Replace with function body.
 
 func _input(event):
+	print(grass.position)
+	
 	# Input Handling
 	if event.is_action_pressed("ui_right") and self.position.x < bounding_x:
 		position.x += 16
 	if event.is_action_pressed("ui_left") and self.position.x > 0:
 		position.x -= 16
-	if event.is_action_pressed("ui_up") and self.position.y > 0:
+	if event.is_action_pressed("ui_up"):
 		#position.y -= 16
 		grass.position.y += 16
 		self.flip_v = false
-	if event.is_action_pressed("ui_down") and self.position.y < bounding_y:
+	if event.is_action_pressed("ui_down") and grass.position.y > -352:
 		#position.y += 16
 		grass.position.y -= 16
 		self.flip_v = true
