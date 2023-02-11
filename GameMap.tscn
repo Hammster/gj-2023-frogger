@@ -4,24 +4,23 @@
 [ext_resource path="res://frog.png" type="Texture" id=2]
 [ext_resource path="res://Frog.gd" type="Script" id=3]
 [ext_resource path="res://street_b.png" type="Texture" id=4]
-[ext_resource path="res://water.png" type="Texture" id=5]
+[ext_resource path="res://grass_b.png" type="Texture" id=5]
 [ext_resource path="res://Grass.gd" type="Script" id=6]
 
 [node name="GameMap" type="Node2D"]
 scale = Vector2( 4, 4 )
 
 [node name="Grass" type="Sprite" parent="."]
-position = Vector2( 0, -1856 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 256, 2048 )
+region_rect = Rect2( 0, 0, 256, 512 )
 script = ExtResource( 6 )
 
 [node name="Obstacles" type="Node2D" parent="Grass"]
 
 [node name="StreetB2" type="Sprite" parent="Grass/Obstacles"]
-position = Vector2( 0, 1870 )
+position = Vector2( 5.75, 348.25 )
 texture = ExtResource( 4 )
 centered = false
 flip_v = true
@@ -29,18 +28,18 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 256, 32 )
 
 [node name="StreetB" type="Sprite" parent="Grass/Obstacles"]
-position = Vector2( 0, 1900 )
+position = Vector2( 5.75, 378.25 )
 texture = ExtResource( 4 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 256, 32 )
 
 [node name="Water" type="Sprite" parent="Grass/Obstacles"]
-position = Vector2( 0, 1664 )
+position = Vector2( 6.25, 158.25 )
 texture = ExtResource( 5 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 256, 92 )
+region_rect = Rect2( 0, 0, 256, 32 )
 
 [node name="Decorations" type="Node2D" parent="Grass"]
 
