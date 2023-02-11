@@ -50,15 +50,16 @@ func _on_Area2D_area_entered(area):
 		print("Swim")
 	
 	if "Truck" in area.get_parent().name:
-		$walk.play()
+		$smash.play()
 		print("death T")
 		get_tree().change_scene("res://lost.tscn")
 	if "Hound" in area.get_parent().name:
-		$walk.play()
+		$bite.play()
 		print("death H")
 		get_tree().change_scene("res://lost.tscn")
 	if "Water" in area.get_parent().name:
 		is_swimming = true
+		$Splash.play()
 	pass
 
 func _on_Area2D_area_exited(area):

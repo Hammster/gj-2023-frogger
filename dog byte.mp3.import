@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dog byte.mp3-a02eab1944b4f7b6dfbce7f22f143a5f.mp3str"
+
+[deps]
+
+source_file="res://dog byte.mp3"
+dest_files=[ "res://.import/dog byte.mp3-a02eab1944b4f7b6dfbce7f22f143a5f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

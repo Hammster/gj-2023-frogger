@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/frogsmash.mp3-062dacf90b00e66e0fefc574a2d4a6ae.mp3str"
+
+[deps]
+
+source_file="res://frogsmash.mp3"
+dest_files=[ "res://.import/frogsmash.mp3-062dacf90b00e66e0fefc574a2d4a6ae.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
